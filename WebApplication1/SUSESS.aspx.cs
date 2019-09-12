@@ -137,15 +137,19 @@ namespace WebApplication1
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            int index = 0;
             DataTable data;
             data = tmpdb;
-            TextBox_name.Text = data.Rows[GridView1.SelectedIndex].ItemArray[0].ToString().Trim();
-            TextBox_test1.Text = data.Rows[GridView1.SelectedIndex].ItemArray[1].ToString().Trim();
-            TextBox_test2.Text = data.Rows[GridView1.SelectedIndex].ItemArray[2].ToString().Trim();
-            TextBox_test3.Text = data.Rows[GridView1.SelectedIndex].ItemArray[3].ToString().Trim();
-            TextBox_exam.Text = data.Rows[GridView1.SelectedIndex].ItemArray[4].ToString().Trim();
-            TextBox_grade.Text = data.Rows[GridView1.SelectedIndex].ItemArray[5].ToString().Trim();
-            Button2.Text = "更新資料";
+            index = GridView1.SelectedIndex + (GridView1.PageIndex * GridView1.PageSize);
+                    TextBox_name.Text = data.Rows[index].ItemArray[0].ToString().Trim();
+                    TextBox_test1.Text = data.Rows[index].ItemArray[1].ToString().Trim();
+                    TextBox_test2.Text = data.Rows[index].ItemArray[2].ToString().Trim();
+                    TextBox_test3.Text = data.Rows[index].ItemArray[3].ToString().Trim();
+                    TextBox_exam.Text = data.Rows[index].ItemArray[4].ToString().Trim();
+                    TextBox_grade.Text = data.Rows[index].ItemArray[5].ToString().Trim();
+                    Button2.Text = "更新資料";
+              
         }
 
         protected void TextBox_name_TextChanged(object sender, EventArgs e)
